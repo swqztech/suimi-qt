@@ -19,7 +19,8 @@ function Find-QtPrefix {
     if ($env:CMAKE_PREFIX_PATH -and (Test-Path $env:CMAKE_PREFIX_PATH)) {
         return $env:CMAKE_PREFIX_PATH
     }
-    $roots = @("C:\Qt")
+    $repoQt = Join-Path (Split-Path -Parent $Root) ".qt"
+    $roots = @($repoQt, "C:\Qt")
     foreach ($r in $roots) {
         if (-not (Test-Path $r)) { continue }
         $found = Get-ChildItem -Path $r -Directory -ErrorAction SilentlyContinue |

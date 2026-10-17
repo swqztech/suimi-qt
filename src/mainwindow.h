@@ -46,7 +46,7 @@ class MainWindow : public QMainWindow {
   QSlider* length_slider_ = nullptr;
   QLabel* length_value_ = nullptr;
 
-  QWidget* password_opts_ = nullptr;
+  QWidget* password_opts_panel_ = nullptr;
   QPushButton* opt_lower_ = nullptr;
   QPushButton* opt_upper_ = nullptr;
   QPushButton* opt_digit_ = nullptr;

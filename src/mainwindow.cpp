@@ -103,8 +103,8 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   len_layout->addWidget(length_value_);
   root->addWidget(length_row_);
 
-  password_opts_ = new QWidget;
-  auto* opt_flow = new QHBoxLayout(password_opts_);
+  password_opts_panel_ = new QWidget;
+  auto* opt_flow = new QHBoxLayout(password_opts_panel_);
   opt_flow->setContentsMargins(0, 0, 0, 0);
   opt_flow->setSpacing(8);
   opt_lower_ = makePill(QStringLiteral("小写 a-z"));
@@ -127,7 +127,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
   opt_flow->addWidget(opt_symbol_);
   opt_flow->addWidget(opt_ambig_);
   opt_flow->addStretch();
-  root->addWidget(password_opts_);
+  root->addWidget(password_opts_panel_);
 
   mode_hint_ = makeMutedLabel("");
   root->addWidget(mode_hint_);
@@ -186,7 +186,7 @@ void MainWindow::rebuildUiForMode() {
   const bool pwd = mode_ == Mode::Password;
   const bool user = mode_ == Mode::Username;
   strength_row_->setVisible(pwd);
-  password_opts_->setVisible(pwd);
+  password_opts_panel_->setVisible(pwd);
   length_row_->setVisible(pwd || user);
 
   if (pwd) {
