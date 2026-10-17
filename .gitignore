@@ -1,0 +1,5 @@
+/build
+/dist
+/packaging/installer-stage
+CMakeUserPresets.json
+CMakeCache.txt
